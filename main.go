@@ -1,9 +1,9 @@
 package main
 
-
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"net/http"
 )
 
@@ -12,12 +12,15 @@ type Task struct {
 	Text string `json:"text"`
 }
 
-var tasks []Task
+var tasks = []Task{
+	{ID: 1, Text: "First task"},
+	{ID: 2, Text: "Second task"},
+}
 
 func main() {
 	http.HandleFunc("/tasks", handleTasks)
 	fmt.Println("Server running on :8080")
-	http.ListenAndServe(":8080", nil)
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }
 
 func handleTasks(w http.ResponseWriter, r *http.Request) {
@@ -27,7 +30,10 @@ func handleTasks(w http.ResponseWriter, r *http.Request) {
 		json.NewEncoder(w).Encode(tasks)
 	case "POST":
 		var task Task
-		json.NewDecoder(r.Body).Decode(&task)
+		if err := json.NewDecoder(r.Body).Decode(&task); err != nil {
+			http.Error(w, err.Error(), http.StatusBadRequest)
+			return
+		}
 		task.ID = len(tasks) + 1
 		tasks = append(tasks, task)
 		json.NewEncoder(w).Encode(task)
