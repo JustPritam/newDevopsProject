@@ -22,3 +22,16 @@ How to fix the no space issue in Jenkins in EC2?
 3. In the "Node Properties", under "Disk Space Monitoring Thresholds", change all sizes to 0MB.
 4. Click on "Save".
 5. Restart Jenkins.
+
+How to create a pipeline?
+
+1. Select "New item".
+2. Enter the pipeline name and select "Freestyle Pipeline".
+3. Scroll down, under "Build steps" > "Add Build Steps" > select "Execute Shell"
+4. Write down the docker commands there:
+   a. sudo docker build -t <IMAGE-NAME> -f <LOCATION-OF-THE-DOCKERFILE>/Dockerfile <LOCATION-OF-THE-DOCKERFILE>
+   -f specifies the Dockerfile path.
+   The second path is the build context (folder where your Go files and go.mod live).
+   b. sudo docker run -d -p port:port <IMAGE-NAME>
+5. Click on "Save".
+6. Click on "Build Now".
