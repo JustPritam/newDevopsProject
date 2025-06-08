@@ -41,3 +41,5 @@ How to create a pipeline?
    b. sudo docker run -d -p port:port <IMAGE-NAME>
 5. Click on "Save".
 6. Click on "Build Now".
+
+Plugins needed: Git client, Docker Pipeline
