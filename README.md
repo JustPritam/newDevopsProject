@@ -15,6 +15,12 @@ git add .
 git commit -m "Test commit"
 git push origin main
 
+Another way to push:
+1. Go to "Settings" > "Developer Settings"
+2. Click on "Create a Personal Access Token" and then after creating copy it.
+3. Now you have to set the remote origin URL: git remote set-url origin <YOUR_REPO>
+4. Then when you push the commit in username provide your username and in password provide the PAT
+
 How to fix the no space issue in Jenkins in EC2?
 
 1. Go to "Manage Jenkins" > "Nodes" 
