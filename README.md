@@ -14,3 +14,11 @@ ssh -T git@github.com
 git add .
 git commit -m "Test commit"
 git push origin main
+
+How to fix the no space issue in Jenkins in EC2?
+
+1. Go to "Manage Jenkins" > "Nodes" 
+2. Click on the settings button in the right most side of the "Built-In Node"
+3. In the "Node Properties", under "Disk Space Monitoring Thresholds", change all sizes to 0MB.
+4. Click on "Save".
+5. Restart Jenkins.
