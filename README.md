@@ -42,4 +42,4 @@ How to create a pipeline?
 5. Click on "Save".
 6. Click on "Build Now".
 
-Plugins needed: Git client, Docker Pipeline
+Plugins needed: Docker Pipeline
