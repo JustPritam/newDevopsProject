@@ -1,7 +1,12 @@
-version : "3.3" #Specifies the version of the Docker Compose file format. Version 3.3 is compatible with Docker 17.06+ and is typically used for deploying containers in production environments, especially with Docker Swarm.
-services: #This section defines the different services (containers) you want to run. In this case, there's only one — web.
-  web : #This is the name of the service. It could be any name (like frontend, backend, etc.), and it represents one container running as part of your application.
-    build : . #This tells Docker Compose to build a Docker image from the current directory (.).
-              #It uses the Dockerfile located in the same directory to build the image.
+version : "3.3" 
+#Specifies the version of the Docker Compose file format. Version 3.3 is compatible with Docker 17.06+ and is typically used for deploying containers in production environments, especially with Docker Swarm.
+services: 
+#This section defines the different services (containers) you want to run. In this case, there's only one — web.
+  web : 
+  #This is the name of the service. It could be any name (like frontend, backend, etc.), and it represents one container running as part of your application.
+    build : . 
+    #This tells Docker Compose to build a Docker image from the current directory (.).
+    #It uses the Dockerfile located in the same directory to build the image.
     ports : 
-      - "8081:8081" #This port mapping format must be written like this only as a list.
+      - "8081:8081" 
+      #This port mapping format must be written like this only as a list.
