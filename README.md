@@ -43,3 +43,12 @@ How to create a pipeline?
 6. Click on "Build Now".
 
 Plugins needed: Docker Pipeline
+
+If this error: **sudo: a terminal is required to read the password; either use the -S option to read from standard input or configure an askpass helper
+sudo: a password is required** is shown then follow these:
+_Allow Jenkins user to run docker without sudo_
+This is the recommended and cleanest way.
+1. Add Jenkins user to the docker group:
+**sudo usermod -aG docker jenkins**
+2. Restart Jenkins and re-login to apply group changes:
+**sudo systemctl restart jenkins**
