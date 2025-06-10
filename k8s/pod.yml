@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: todoapp
+spec:
+  containers:
+  - name: todoapp
+    image: pritamcalsoft/todoapp:v1
+    ports:
+    - containerPort: 8081
