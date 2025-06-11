@@ -52,3 +52,19 @@ This is the recommended and cleanest way.
 **sudo usermod -aG docker jenkins**
 2. Restart Jenkins and re-login to apply group changes:
 **sudo systemctl restart jenkins**
+
+How to use k8s?
+
+1. Install minikube
+2. Download minikube and start it by: **minikube start --driver=docker**
+3. Create a _pod.yml_
+4. Create a _deploy.yml_
+5. Create a _service.yml_
+6. To start the pod: **kubectl apply -f pod.yml**
+7. To start the deployment: **kubectl apply -f deploy.yml**
+8. To start the service: **kubectl apply -f service.yml**
+9. Then run: **kubectl get svc**
+10. Run: **minikube service <SERVICE_NAME> --url** and you will get an address.
+11. Use **curl -l <ADDRESS_THAT_YOU_GOT_IN_PT6>**
+12. Then run: **sudo nano /etc/hosts** and add the IP-address and add a Name suppose **todoapp.com**. Save and exit.
+13. Run: **curl -l todoapp.com:30007**.
