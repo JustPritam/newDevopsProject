@@ -57,14 +57,14 @@ How to use k8s?
 
 1. Install minikube
 2. Download minikube and start it by: **minikube start --driver=docker**
-3. Create a _pod.yml_
-4. Create a _deploy.yml_
-5. Create a _service.yml_
+3. Create a _pod.yml_ (Defines a single pod manually for testing)
+4. Create a _deploy.yml_ (Defines a Deployment which manages pod replicas and handles self-healing)
+5. Create a _service.yml_ (Exposes your Deployment so it can be accessed from outside (usually via NodePort or LoadBalancer))
 6. To start the pod: **kubectl apply -f pod.yml**
 7. To start the deployment: **kubectl apply -f deploy.yml**
 8. To start the service: **kubectl apply -f service.yml**
-9. Then run: **kubectl get svc**
-10. Run: **minikube service <SERVICE_NAME> --url** and you will get an address.
-11. Use **curl -l <ADDRESS_THAT_YOU_GOT_IN_PT6>**
-12. Then run: **sudo nano /etc/hosts** and add the IP-address and add a Name suppose **todoapp.com**. Save and exit.
-13. Run: **curl -l todoapp.com:30007**.
+9. Then run: **kubectl get svc** (Lists all services along with their ports and cluster IPs)
+10. Run: **minikube service <SERVICE_NAME> --url** and you will get an address (Provides an accessible URL to your service)
+11. Use **curl -l <ADDRESS_THAT_YOU_GOT_IN_PT6>** (Checks if the service is up and running)
+12. Then run: **sudo nano /etc/hosts** and add the IP-address and add a Name suppose **todoapp.com**. Save and exit. (Add a line like the IP-address todoapp.com to access using a name instead of IP)
+13. Run: **curl -l todoapp.com:30007** (Useful for simulating production-like access using domain names)
