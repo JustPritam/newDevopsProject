@@ -1,5 +1,5 @@
-🚀 How to Push Code to GitHub
-🔐 Using SSH:
+# 🚀 How to Push Code to GitHub 
+## 🔐 Using SSH:
 1. Generate SSH Key:
 **ssh-keygen -t ed25519 -C "your_email@example.com"**
 2. Copy the key:
@@ -14,21 +14,23 @@ Add it to GitHub > Settings > SSH and GPG keys > New SSH Key
 git commit -m "Test commit"
 git push origin main**
 
-🔑 Using Personal Access Token (PAT):
+## 🔑 Using Personal Access Token (PAT):
 1. Go to GitHub > Settings > Developer Settings > Personal Access Tokens
 2. Generate a token and copy it.
 3. Set the remote URL:
 **git remote set-url origin https://github.com/username/repository.git**
 4. On **git push**, use your username and the PAT as the password.
 
-🧹 Fix Jenkins “_No Space_” Issue on EC2
+# JENKINS
+
+## 🧹 Fix Jenkins “_No Space_” Issue on EC2
 1. Go to Manage Jenkins > Nodes
 2. Edit the Built-In Node
 3. Under Disk Space Monitoring Thresholds, set all values to 0MB
 4. Click Save
 5. Restart Jenkins
-
-⚙️ How to Create a Jenkins Pipeline
+   
+## ⚙️ How to Create a Jenkins Pipeline
 1. Go to New Item > Freestyle Project
 2. Under Build Steps > Add Build Step > Execute Shell, add:
 **sudo docker build -t <IMAGE-NAME> -f <DOCKERFILE_PATH>/Dockerfile <DOCKERFILE_PATH>
@@ -36,19 +38,19 @@ sudo docker run -d -p <HOST_PORT>:<CONTAINER_PORT> <IMAGE-NAME>**
 3. Save and click Build Now
 🔌 _Required Plugin: Docker Pipeline_
 
-🔐 Fix sudo password error:
+## 🔐 Fix sudo password error:
 Allow Jenkins to run Docker without sudo:
 **sudo usermod -aG docker jenkins
 sudo systemctl restart jenkins**
 
-☸️ How to Use Kubernetes with Minikube
+# ☸️ How to Use Kubernetes with Minikube
 1. Install Minikube
 2. Start Minikube with Docker:
 **minikube start --driver=docker**
 3. Create Kubernetes YAMLs:
-   _pod.yml_ – for a single pod (optional)
-   _deploy.yml_ – for managing replicas/self-healing
-   _service.yml_ – to expose your app
+     *  _pod.yml_ – for a single pod (optional)
+     *  _deploy.yml_ – for managing replicas/self-healing
+     * _service.yml_ – to expose your app
 4. Apply configurations:
 **kubectl apply -f deploy.yml
 kubectl apply -f service.yml**
